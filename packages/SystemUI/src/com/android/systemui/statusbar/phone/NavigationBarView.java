@@ -751,7 +751,7 @@ public class NavigationBarView extends LinearLayout {
         final boolean showImeButton = ((hints & StatusBarManager.NAVIGATION_HINT_IME_SHOWN) != 0
                     && !mImeArrowVisibility);
         if (getImeSwitchButton() != null) {
-            getImeSwitchButton().setVisibility(showImeButton ? View.VISIBLE : View.GONE);
+            getImeSwitchButton().setVisibility(showImeButton ? View.INVISIBLE : View.GONE);
             mIsImeButtonVisible = showImeButton;
         }
 
