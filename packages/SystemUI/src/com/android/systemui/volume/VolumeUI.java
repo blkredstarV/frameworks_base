@@ -91,6 +91,7 @@ public class VolumeUI extends SystemUI {
         super.onConfigurationChanged(newConfig);
         if (!mEnabled) return;
         getVolumeComponent().onConfigurationChanged(newConfig);
+        mVolumeComponent.recreateDialog();
     }
 
     @Override

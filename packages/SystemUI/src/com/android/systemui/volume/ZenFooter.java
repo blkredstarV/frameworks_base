@@ -69,8 +69,7 @@ public class ZenFooter extends LinearLayout {
         mSpTexts.add(mEndNowButton);
     }
 
-    public void init(final ZenModeController controller) {
-        controller.addCallback(new ZenModeController.Callback() {
+    private ZenModeController.Callback mZenModeCallback = new ZenModeController.Callback() {
             @Override
             public void onZenChanged(int zen) {
                 setZen(zen);
@@ -79,7 +78,10 @@ public class ZenFooter extends LinearLayout {
             public void onConfigChanged(ZenModeConfig config) {
                 setConfig(config);
             }
-        });
+    };
+
+    public void init(final ZenModeController controller) {
+        controller.addCallback(mZenModeCallback);
         mEndNowButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,5 +143,8 @@ public class ZenFooter extends LinearLayout {
     public void onConfigurationChanged() {
         mSpTexts.update();
     }
-
+    
+    public void cleanup() {
+        mController.removeCallback(mZenModeCallback);
+    }
 }

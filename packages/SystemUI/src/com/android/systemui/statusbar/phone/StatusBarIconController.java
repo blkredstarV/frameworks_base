@@ -457,6 +457,10 @@ public class StatusBarIconController implements Tunable {
             }
         }
     }
+    
+    public LinearLayout getStatusIcons() {
+        return mStatusIcons;
+    }
 
     private boolean isGrayscale(StatusBarIconView v) {
         Object isGrayscale = v.getTag(R.id.icon_is_grayscale);
